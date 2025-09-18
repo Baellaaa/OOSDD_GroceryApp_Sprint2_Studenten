@@ -1,5 +1,5 @@
 # GroceryApp sprint2 
-
+//Test comment voor een erun van de maui-test.yaml file
 ## Docentversie  
 In deze versie zijn de wijzigingen doorgevoerd en is de code compleet.  
 
