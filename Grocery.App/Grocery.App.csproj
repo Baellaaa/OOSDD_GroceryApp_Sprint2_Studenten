@@ -57,11 +57,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Remove="Views\LoginView.xaml.cs" />
+	  <Compile Remove="Views\LoginView.xaml.cs" /> <!--might want to include if below doesn't work-->
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Remove="Views\LoginView.xaml" />
+	  <MauiXaml Include="Views\LoginView.xaml" /> <!--instead of remove, include so it gets added to the solution-->
 	</ItemGroup>
 
 	<ItemGroup>
