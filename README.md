@@ -1,5 +1,12 @@
 # GroceryApp sprint2 
 //Test comment voor een erun van de maui-test.yaml file
+
+# Branching strategie
+Voor deze sprint is er gekozen om gebruik te maken van Gitflow.
+Gitflow is een workflow om branches te beheren. Hierbij maken wij gebruik van een develop/development branch
+Hierbij letten wij op naamgeving van branches, duidelijke commits en merges op de volgende volgorde:
+feature -> develop -> release -> main 
+
 ## Docentversie  
 In deze versie zijn de wijzigingen doorgevoerd en is de code compleet.  
 
