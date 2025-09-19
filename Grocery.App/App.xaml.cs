@@ -5,12 +5,12 @@ namespace Grocery.App
 {
     public partial class App : Application
     {
-        public App(LoginViewModel viewModel) // uncommented
+        public App(LoginViewModel viewModel)
         {
             InitializeComponent();
 
-            //MainPage = new AppShell(); //commented
-            MainPage = new LoginView(viewModel); //uncommented
+            MainPage = new AppShell();
+            MainPage = new LoginView(viewModel);
         }
     }
 }

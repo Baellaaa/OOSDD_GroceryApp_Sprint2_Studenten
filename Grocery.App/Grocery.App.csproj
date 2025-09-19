@@ -57,14 +57,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Remove="Views\LoginView.xaml.cs" /> <!--might want to include if below doesn't work-->
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Include="Views\LoginView.xaml" /> <!--instead of remove, include so it gets added to the solution-->
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
