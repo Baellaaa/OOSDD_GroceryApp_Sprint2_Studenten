@@ -1,5 +1,5 @@
 # GroceryApp sprint2 
-
+//Test comment voor een erun van de maui-test.yaml file
 ## Docentversie  
 In deze versie zijn de wijzigingen doorgevoerd en is de code compleet.  
 
@@ -17,7 +17,7 @@ Is compleet.
 ### UC06 Inloggen  
 Een collega is ziek maar heeft al een deel van de inlogfunctionaliteit gemaakt.  
 Dit betreft het Loginscherm (LoginView) met bijbehorend ViewModel (LoginViewModel),  
-maar ook al een deel van de authenticatieService (AuthService in Grocery.Core),  
+maar ook al een deel van de authenticatieService (AuthServnn,mnmice in Grocery.Core),  
 de clientrepository (ClientRepository in Grocery.Core.Data)  
 en de client class (Client in Grocery.Core).  
 De opdracht is om zelfstandig de login functionaliteit te laten werken.  
@@ -31,4 +31,4 @@ De opdracht is om zelfstandig de login functionaliteit te laten werken.
 6. In App.xaml.cs staat /*LoginViewModel viewModel*/ haal hier /* en */ weg, zodat het LoginViewModel beschikbaar komt.  
 7. In App.xaml.cs staat //MainPage = new LoginView(viewModel); Haal hier de // weg en zet de regel erboven in commentaar, zodat AppShell wordt uitgeschakeld.  
 8. Uncomment de route naar het Login scherm in AppShell.xaml.cs: //Routing.RegisterRoute("Login", typeof(LoginView)); 
-
+ 

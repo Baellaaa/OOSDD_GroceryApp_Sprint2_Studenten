@@ -13,6 +13,6 @@
 
     <VerticalStackLayout>
         <Editor Text="{Binding GroceryList.Color}" x:Name="newColor"/>
-        <Button Text="wijzig kleur" Command="{Binding ChangeColorCommand}" CommandParameter="{Binding Source={x:Reference newColor}, Path=Text}" />
+        <Button Text="Kleur bewaren" Command="{Binding ChangeColorCommand}" CommandParameter="{Binding Source={x:Reference newColor}, Path=Text}" />
     </VerticalStackLayout>
 </ContentPage>

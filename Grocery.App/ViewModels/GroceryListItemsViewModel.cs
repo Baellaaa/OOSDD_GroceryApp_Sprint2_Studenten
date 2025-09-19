@@ -3,7 +3,9 @@ using CommunityToolkit.Mvvm.Input;
 using Grocery.App.Views;
 using Grocery.Core.Interfaces.Services;
 using Grocery.Core.Models;
+using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Grocery.App.ViewModels
 {
@@ -34,10 +36,20 @@ namespace Grocery.App.ViewModels
 
         private void GetAvailableProducts()
         {
-            //Maak de lijst AvailableProducts leeg
-            //Haal de lijst met producten op
-            //Controleer of het product al op de boodschappenlijst staat, zo niet zet het in de AvailableProducts lijst
-            //Houdt rekening met de voorraad (als die nul is kun je het niet meer aanbieden).            
+            //Clear the current list of products, to prevent conflict
+            AvailableProducts.Clear();
+            List<Product> producten = _productService.GetAll();
+            List<GroceryListItem> boodschappen = _groceryListItemsService.GetAll();
+            foreach (var product in producten)
+            {
+                //checks if the product is already in grocery list or not
+                //if stock > 0 -> add to available products 
+                if (!MyGroceryListItems.Any(boodschappenProduct => boodschappenProduct.ProductId == product.Id)
+                    && product.Stock > 0)
+                {
+                    AvailableProducts.Add(product);
+                }
+            }
         }
 
         partial void OnGroceryListChanged(GroceryList value)
@@ -54,12 +66,19 @@ namespace Grocery.App.ViewModels
         [RelayCommand]
         public void AddProduct(Product product)
         {
-            //Controleer of het product bestaat en dat de Id > 0
-            //Maak een GroceryListItem met Id 0 en vul de juiste productid en grocerylistid
-            //Voeg het GroceryListItem toe aan de dataset middels de _groceryListItemsService
-            //Werk de voorraad (Stock) van het product bij en zorg dat deze wordt vastgelegd (middels _productService)
-            //Werk de lijst AvailableProducts bij, want dit product is niet meer beschikbaar
-            //call OnGroceryListChanged(GroceryList);
+            //if stock <= 0 -> don't add to grocerylist
+            if (product == null || product.Id <= 0) return;
+            List<Product> producten = _productService.GetAll(); //Calling list to prevent conflict with older list
+
+
+            GroceryListItem newItem = new GroceryListItem(0, groceryList.Id, product.Id, 1);
+            _groceryListItemsService.Add(newItem); //Add item to grocery list
+            product.Stock--;
+            int tmp_index = producten.IndexOf(_productService.Get(product.Id));
+            producten.RemoveAt(tmp_index); //Delete old product object 
+            producten.Insert(tmp_index, product); //Renew product with updated stock count
+            GetAvailableProducts();
+            OnGroceryListChanged(GroceryList);
         }
     }
 }

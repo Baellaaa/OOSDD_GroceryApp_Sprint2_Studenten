@@ -33,7 +33,7 @@ namespace Grocery.Core.Data.Repositories
             int newId = groceryListItems.Max(g => g.Id) + 1;
             item.Id = newId;
             groceryListItems.Add(item);
-            return Get(item.Id);
+            return Get(item.Id)!; // ! prevents nullable error
         }
 
         public GroceryListItem? Delete(GroceryListItem item)
