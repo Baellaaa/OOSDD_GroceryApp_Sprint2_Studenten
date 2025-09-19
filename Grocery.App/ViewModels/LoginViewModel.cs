@@ -21,7 +21,7 @@ namespace Grocery.App.ViewModels
         private string loginMessage;
 
         public LoginViewModel(IAuthService authService, GlobalViewModel global)
-        { //_authService = App.Services.GetServices<IAuthService>().FirstOrDefault();
+        { _authService = App.Services.GetServices<IAuthService>().FirstOrDefault(); //uncommented
             _authService = authService;
             _global = global;
         }
