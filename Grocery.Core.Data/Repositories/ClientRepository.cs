@@ -19,15 +19,15 @@ namespace Grocery.Core.Data.Repositories
 
         public Client? Get(string email)
         {
-            return clientList[0];
+            return clientList[ClientRepository[email]; //maak er client mail van
         }
 
-        public Client? Get(int id)
+        public Client? Get(int id) // clientid
         {
-            return clientList[0];
+            return clientList[ClientRepository[id];
         }
 
-        public List<Client> GetAll()
+        public List<Client> GetAll() 
         {
             return clientList;
         }
