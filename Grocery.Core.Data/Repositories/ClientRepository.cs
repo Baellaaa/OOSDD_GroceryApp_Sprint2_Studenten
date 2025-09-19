@@ -17,13 +17,14 @@ namespace Grocery.Core.Data.Repositories
             ];
         }
 
-        public Client? GetEmail(string email)
+        public Client? Get(string email)
         {
-            return clientList.Find(clientEmail  => clientEmail.Email == email);
+            return clientList.Find(client => client._emailAddress == email);
+            //return clientList.Find(clientEmail  => clientEmail.emailAddress == email);
             //return clientList.Find(client => client.Email.Equals(email, StringComparison.OrdinalIgnoreCase)); //.Find() om specifiek de email te krijgen
         } //StringComparison voor ongevoeligheid in hoofdletters/kleine letters
 
-        public Client? GetId(int id) // clientid
+        public Client? Get(int id) // clientid
         {
             return clientList.Find(clientId  => clientId.Id == id); //.Find() om specifieke id te krijgen
         }
